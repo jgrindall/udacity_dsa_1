@@ -19,4 +19,4 @@ Print a message:
 "There are <count> different telephone numbers in the records."
 """
 
-print(len(calls))
+print('There are: {} different telephone numbers in the records'.format(len(calls)))
