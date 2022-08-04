@@ -46,7 +46,7 @@ to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
 
-Task3.process()
+Task3.process(calls, texts)
 
 
 

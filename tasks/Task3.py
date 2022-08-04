@@ -30,11 +30,11 @@ class Task3():
 
         bangalore_data = get_receiving_from_area(BANGALORE_AREA_CODE, calls)
 
-        #For part A, we need to get the codes we want to print
+        #For part A, we need to get the codes
         bangalore_codes = list(map(get_code, bangalore_data))
 
         # remove duplicates
-        bangalore_codes_uniq = list(dict.fromkeys(bangalore_codes))
+        bangalore_codes_uniq = list(set(bangalore_codes))
 
         print("The numbers called by people in Bangalore have codes:")
         #sorted, one per line
