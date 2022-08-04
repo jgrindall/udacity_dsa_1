@@ -114,3 +114,40 @@ Number is not classifiable
 ... except ValueError as e:
 ...     print(str(e))
 Number is not classifiable
+
+# Test Task1
+>>> from tasks import Task1
+>>> from fake import calls, texts
+>>> Task1.process(calls, texts)
+There are: 7 different telephone numbers in the records
+
+# Test Task2
+>>> from tasks import Task2
+>>> from fake import calls, texts
+>>> Task2.process(calls, texts)
+(080)33333333 spent the longest time, 180 seconds, on the phone during September 2016.
+
+# Test Task3
+>>> from tasks import Task3
+>>> from fake import calls, texts
+>>> Task3.process(calls, texts)
+The numbers called by people in Bangalore have codes:
+022
+080
+66.67 percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.
+
+# Test Task4
+>>> from tasks import Task4
+>>> from fake import calls, texts
+>>> Task4.process(calls, texts)
+These numbers could be telemarketers:
+14033333333
+
+
+
+
+
+
+
+
+

@@ -11,7 +11,6 @@ with open('calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
 
-
 """
 TASK 0:
 What is the first record of texts and what is the last record of calls?
@@ -22,8 +21,6 @@ Print messages:
 
 first_text = texts[0]
 print('First record of texts, {} texts {} at time {}'.format(first_text[0], first_text[1], first_text[2]))
-
-
 
 last_call = calls[-1]
 print('Last record of calls, {} calls {} at time {}, lasting {} seconds'.format(last_call[0], last_call[1], last_call[2], last_call[3]))
