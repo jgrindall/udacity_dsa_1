@@ -44,15 +44,22 @@ Overall, this is O(n logn)
             
             > python3 Task3.py
             
+
+
+For Part A, 'get_receiving_from_area' is O(n), the map operation is also O(n), and the sort is O(n logn) so this is O(n logn) overall.
+
+For Part B, the filter operation is O(n), and the final calculation is O(1), so this is O(n) overall. 
+
+
+
+- Task 4
             
             > python3 Task4.py
 
+Creating the three lists is O(n).
+The set difference operations are also O(n)
+The final sort is O(n logn)
 
-numbers_that_make_calls = list(map(lambda call: call[0], calls))
-numbers_that_receive_calls = list(map(lambda call: call[1], calls))
-numbers_that_send_texts = list(map(lambda text: text[0], texts))
-numbers_that_receive_texts = list(map(lambda text: text[1], texts))
+Overall, this is O(n logn)
 
-numbers = list(set(numbers_that_make_calls) | set(numbers_that_receive_calls) | set(numbers_that_send_texts) | set(numbers_that_receive_texts))
 
-print('There are: {} different telephone numbers in the records'.format(len(numbers)))
