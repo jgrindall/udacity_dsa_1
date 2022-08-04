@@ -25,10 +25,8 @@ This is O(1)
             > python3 Task1.py
 
 Creating the lists is O(n).
-
-Performing the set union is also O(n) since checking if elements exist in a Python set is O(1).
-
-Overall, this is O(n).
+Performing the set union is also O(n) since checking if elements exist in a Python set is O(1)
+Overall, this is O(n)
 
 
             
