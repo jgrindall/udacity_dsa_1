@@ -1,0 +1,116 @@
+
+# Test telemarketing
+>>> from classifiers import PhoneNumberClassifier
+>>> c = PhoneNumberClassifier.classify_number("1408371942")
+>>> c["type"] == "tele" and c["number"] == "8371942"
+True
+
+# Test telemarketing
+>>> from classifiers import PhoneNumberClassifier
+>>> c = PhoneNumberClassifier.classify_number("1407539117")
+>>> c["type"] == "tele" and c["number"] == "7539117"
+True
+
+# Test mobile
+>>> from classifiers import PhoneNumberClassifier
+>>> c = PhoneNumberClassifier.classify_number("84311 10322")
+>>> c["type"] == "mobile" and c["code"] == "8431"
+True
+
+# Test mobile
+>>> from classifiers import PhoneNumberClassifier
+>>> c = PhoneNumberClassifier.classify_number("95264 40233")
+>>> c["type"] == "mobile" and c["code"] == "9526"
+True
+
+# Test fixed
+>>> from classifiers import PhoneNumberClassifier
+>>> c = PhoneNumberClassifier.classify_number("(080)32255824")
+>>> c["type"] == "fixed" and c["area_code"] == "080" and c["number"] == "32255824"
+True
+
+# Test fixed
+>>> from classifiers import PhoneNumberClassifier
+>>> c = PhoneNumberClassifier.classify_number("(044)69775060")
+>>> c["type"] == "fixed" and c["area_code"] == "044" and c["number"] == "69775060"
+True
+
+# Test fail - empty
+>>> from classifiers import PhoneNumberClassifier
+>>> try:
+...     c = PhoneNumberClassifier.classify_number("")
+... except ValueError as e:
+...     print(str(e))
+Number is not classifiable
+
+# Test fail - characters
+>>> from classifiers import PhoneNumberClassifier
+>>> try:
+...     c = PhoneNumberClassifier.classify_number("84311 -10322")
+... except ValueError as e:
+...     print(str(e))
+Number is not classifiable
+
+# Test fail - ABC
+>>> from classifiers import PhoneNumberClassifier
+>>> try:
+...     c = PhoneNumberClassifier.classify_number("(044)69ABC060")
+... except ValueError as e:
+...     print(str(e))
+Number is not classifiable
+
+# Test fail - bracket missing
+>>> from classifiers import PhoneNumberClassifier
+>>> try:
+...     c = PhoneNumberClassifier.classify_number("(04469775060")
+... except ValueError as e:
+...     print(str(e))
+Number is not classifiable
+
+# Test fail - no number
+>>> from classifiers import PhoneNumberClassifier
+>>> try:
+...     c = PhoneNumberClassifier.classify_number("(044")
+... except ValueError as e:
+...     print(str(e))
+Number is not classifiable
+
+# Test fail - extra bracket
+>>> from classifiers import PhoneNumberClassifier
+>>> try:
+...     c = PhoneNumberClassifier.classify_number("(044)69775060)")
+... except ValueError as e:
+...     print(str(e))
+Number is not classifiable
+
+# Test fail - nearly tele but not quite
+>>> from classifiers import PhoneNumberClassifier
+>>> try:
+...     c = PhoneNumberClassifier.classify_number("140")
+... except ValueError as e:
+...     print(str(e))
+Number is not classifiable
+
+# Test fail - mobile without a space
+>>> from classifiers import PhoneNumberClassifier
+>>> try:
+...     c = PhoneNumberClassifier.classify_number("8431110322")
+... except ValueError as e:
+...     print(str(e))
+Number is not classifiable
+
+# Test fail - mobile starting with 6
+>>> from classifiers import PhoneNumberClassifier
+>>> try:
+...     c = PhoneNumberClassifier.classify_number("684311 10322")
+... except ValueError as e:
+...     print(str(e))
+Number is not classifiable
+
+# Test fail - mobile but not long enough
+>>> from classifiers import PhoneNumberClassifier
+>>> try:
+...     c = PhoneNumberClassifier.classify_number("683 10322")
+... except ValueError as e:
+...     print(str(e))
+Number is not classifiable
